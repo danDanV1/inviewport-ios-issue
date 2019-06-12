@@ -20,4 +20,15 @@
     {{/link-to}}
   </li>
 </ul>
+<p>
+  Elements have a tolerance of 500px on all dimensions.
+</p>
+<ul>
+  <li>
+    Use the element inspector to check the value of the next few items outside the viewport and their contents should say "_#_ in viewport."
+  </li>
+  <li>
+    on didEnter/didExit, the element will also log it's status to the console. Useful to quickly compare what is onscreen
+  </li>
+</ul>
 {{outlet}}

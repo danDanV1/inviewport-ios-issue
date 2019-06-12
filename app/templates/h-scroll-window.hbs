@@ -1,22 +1,80 @@
 <h1>
   h-scroll-window
 </h1>
-{{#each
-  (array 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22) as |number|
-}}
-  {{#in-viewport
-    tolerance=(hash top=350 bottom=350 right=350 left=350) as |viewport|
+<ul>
+  <b>
+    iOS
+  </b>
+  <li>
+    Chrome: Works.
+  </li>
+  <li>
+    Safari: Works.
+  </li>
+  <hr />
+  <b>
+    MacOS Desktop
+  </b>
+  <li>
+    Safari: Works.
+  </li>
+  <li>
+    Chrome: Works.
+  </li>
+</ul>
+<div style="width:50000px;">
+  {{#each
+    (array
+      1
+      2
+      3
+      5
+      6
+      7
+      8
+      9
+      10
+      11
+      12
+      13
+      14
+      15
+      16
+      17
+      18
+      19
+      20
+      21
+      22
+      23
+      24
+      25
+      26
+      27
+      28
+      29
+      30
+    ) as |number|
   }}
-    {{#if viewport.viewportEntered}}
-      <h1>
-        {{number}}
-        in viewport
-      </h1>
-    {{else}}
-      <h1>
-        {{number}}
-        outside viewport
-      </h1>
-    {{/if}}
-  {{/in-viewport}}
-{{/each}}
+    <div
+      style="display:inline-block;white-space:nowrap;font-size:30px;margin:2px;width:200px;height:200px;float:left;"
+    >
+      {{#in-viewport
+        number=number
+        tolerance=(hash top=500 bottom=500 right=500 left=500) as |viewport|
+      }}
+        {{#if viewport.viewportEntered}}
+          <div class="w-full h-full bg-green">
+            {{number}}
+            in viewport
+          </div>
+        {{else}}
+          <div class="w-full h-full bg-red">
+            {{number}}
+            outside viewport
+          </div>
+        {{/if}}
+      {{/in-viewport}}
+    </div>
+  {{/each}}
+</div>

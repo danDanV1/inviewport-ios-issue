@@ -5,14 +5,18 @@ import { set, setProperties } from "@ember/object";
 export default Component.extend(InViewportMixin, {
   /*
     Config
-    viewportTolerance=(hash top=350 bottom=350 right=350 left=350)
+    viewportTolerance=(hash top=500 bottom=500 right=500 left=500)
 
     Mutates state on `inViewport` property.
   */
 
   classNames: ["in-viewport-c", "w-full", "h-full"],
 
+  isInViewport: false, //custom to track state and pass down to components
+
   hasEntered: false, //does not toggle once true.
+
+  number: null, //index number of element display onscreen
 
   init() {
     this._super(...arguments);
@@ -45,12 +49,22 @@ export default Component.extend(InViewportMixin, {
     });
   },
   didEnterViewport() {
-    this.set("inViewport", true);
+    this.set("isInViewport", true);
     if (this.hasEntered === false) this.set("hasEntered", true);
-    console.log("entered the viewport");
+    console.log(
+      "#"+this.number+" entered viewport",
+      this.elementId,
+      "scrollableArea=",
+      this.scrollableArea
+    );
   },
   didExitViewport() {
-    this.set("inViewport", false);
-    console.log("exited the viewport");
+    this.set("isInViewport", false);
+    console.log(
+      "#"+this.number+" exited viewport",
+      this.elementId,
+      "scrollableArea=",
+      this.scrollableArea
+    );
   }
 });
