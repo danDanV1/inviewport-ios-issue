@@ -12,15 +12,12 @@ export default Component.extend(InViewportMixin, {
 
   classNames: ["in-viewport-c", "w-full", "h-full"],
 
-  inViewport: false,
-
   hasEntered: false, //does not toggle once true.
 
   init() {
     this._super(...arguments);
 
     setProperties(this, {
-      inViewport: false, //custom to track state and pass down to components
       viewportEnabled: true,
       viewportUseRAF: true,
       //As its name suggests, if this is true and the IntersectionObserver API is not available in the target browser, the Mixin will use requestAnimationFrame. Unless you want to force enabling or disabling this, you won't need to override this option.

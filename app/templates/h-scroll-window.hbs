@@ -7,7 +7,7 @@
   {{#in-viewport
     tolerance=(hash top=350 bottom=350 right=350 left=350) as |viewport|
   }}
-    {{#if viewport.inViewport}}
+    {{#if viewport.viewportEntered}}
       <h1>
         {{number}}
         in viewport
