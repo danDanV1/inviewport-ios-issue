@@ -11,6 +11,7 @@ Router.map(function() {
   this.route("h-scroll-in-element");
   this.route("v-scroll-window");
   this.route("h-scroll-window");
+  this.route('intersection-observer');
 });
 
 export default Router;
